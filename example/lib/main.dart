@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           key: Key('visible-detector-key'),
           child: BarcodeKeyboardListener(
             bufferDuration: Duration(milliseconds: 200),
+            caseSensitive: true,
             onBarcodeScanned: (barcode) {
               if (!visible) return;
               print(barcode);
@@ -70,12 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton(
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  SecondScreen())),
-                      child: Center(child: Text('Second screen'))),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => SecondScreen()
+                      )
+                    ),
+                    child: Center(child: Text('Second screen'))),
                 )
               ],
             ),
